@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --color-background: #0a0a0b;
+  --color-surface: rgba(255, 255, 255, 0.03);
+  --color-heading: #f4ead7;
+  --color-text: #e8e0d0;
+  --color-muted: rgba(236, 226, 209, 0.68);
+  --color-accent: #d6b776;
+  --color-line: rgba(214, 183, 118, 0.28);
+  --color-paper: #efe8db;
+  --color-paper-ink: #271d13;
+  --color-paper-accent: #9d7242;
+  --color-paper-accent-strong: #7e5730;
+  --color-paper-heading: #1f160d;
+  --color-paper-copy: rgba(39, 29, 19, 0.78);
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Manrope", system-ui, sans-serif;
+}
+
+@theme inline {
+  --font-display: var(--font-display);
+  --font-sans: var(--font-body);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at top, rgba(214, 183, 118, 0.07), transparent 18%),
+    linear-gradient(180deg, #080809 0%, #0d0d0f 100%);
+  font-family: var(--font-body);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.contact-input {
+  width: 100%;
+  border-radius: 1.2rem;
+  border: 1px solid rgba(39, 29, 19, 0.12);
+  background: rgba(255, 255, 255, 0.74);
+  padding: 1rem 1rem 1.05rem;
+  color: var(--color-paper-ink);
+  outline: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.contact-input::placeholder {
+  color: rgba(39, 29, 19, 0.4);
+}
+
+.contact-input:focus {
+  border-color: rgba(157, 114, 66, 0.44);
+  box-shadow: 0 0 0 4px rgba(157, 114, 66, 0.12);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.contact-input:-webkit-autofill,
+.contact-input:-webkit-autofill:hover,
+.contact-input:-webkit-autofill:focus,
+.contact-input:-webkit-autofill:active {
+  -webkit-text-fill-color: var(--color-paper-ink);
+  -webkit-box-shadow:
+    0 0 0 1000px rgba(255, 255, 255, 0.82) inset,
+    0 0 0 4px transparent;
+  box-shadow:
+    0 0 0 1000px rgba(255, 255, 255, 0.82) inset,
+    0 0 0 4px transparent;
+  border: 1px solid rgba(39, 29, 19, 0.12);
+  transition: background-color 9999s ease-out 0s;
+}
