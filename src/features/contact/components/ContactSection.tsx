@@ -10,6 +10,7 @@ type ContactSectionProps = {
 
 export function ContactSection({ contact }: ContactSectionProps) {
   const [copied, setCopied] = useState(false);
+  const [didPrepareEmail, setDidPrepareEmail] = useState(false);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -25,6 +26,7 @@ export function ContactSection({ contact }: ContactSectionProps) {
     );
 
     window.location.href = `mailto:${contact.email}?subject=${encodeURIComponent('Booking inquiry')}&body=${body}`;
+    setDidPrepareEmail(true);
   };
 
   const copyEmail = async () => {
@@ -111,8 +113,9 @@ export function ContactSection({ contact }: ContactSectionProps) {
                       type="button"
                       onClick={copyEmail}
                       className="mt-3 max-w-full break-all text-left text-base transition hover:text-[var(--color-paper-accent)] sm:text-lg"
+                      aria-live="polite"
                     >
-                      {contact.email}
+                      {copied ? 'E-post kopierad' : contact.email}
                     </button>
                   </div>
                   <div>
@@ -185,11 +188,16 @@ export function ContactSection({ contact }: ContactSectionProps) {
                 />
               </Field>
             </div>
+            {didPrepareEmail ? (
+              <p className="mt-5 text-sm leading-6 text-[var(--color-paper-copy)]" aria-live="polite">
+                Mejlutkastet har förberetts. Om inget hände kan du kopiera adressen till vänster och skicka samma information manuellt.
+              </p>
+            ) : null}
             <button
               type="submit"
               className="mt-8 inline-flex min-h-14 items-center justify-center rounded-full border border-[var(--color-paper-accent)] bg-transparent px-8 text-sm font-semibold tracking-[0.22em] uppercase text-[var(--color-paper-ink)] transition hover:bg-[var(--color-paper-accent)] hover:text-white"
             >
-              Skicka bokningsförfrågan
+              Öppna mejlutkast
             </button>
           </form>
         </div>
