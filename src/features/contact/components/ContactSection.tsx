@@ -80,7 +80,7 @@ export function ContactSection({ contact }: ContactSectionProps) {
                       </a>{' '}
                       eller{' '}
                       <a
-                        href="https://www.facebook.com/timskoglund"
+                        href="https://www.facebook.com/timskoglundtattoo/"
                         target="_blank"
                         rel="noreferrer"
                         className="text-[var(--color-paper-accent-strong)] underline decoration-[rgba(157,114,66,0.32)] underline-offset-4 transition hover:text-[var(--color-paper-accent)]"
@@ -243,3 +243,4 @@ function TikTokIcon({ className }: IconProps) {
     </svg>
   );
 }
+
